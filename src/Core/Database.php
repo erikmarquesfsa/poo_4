@@ -3,31 +3,38 @@
 namespace App\Core;
 
 use PDO;
-//classe responsável pela conexão
+
+// Classe responsável pela conexão com o banco
 class Database
 {
     private static $conn;
-    //metodo para retornar conexao unica
+
+    // Método estático para retornar conexão única
     public static function getConnection()
     {
-        //conecta se ainda n conectou
+        // Se ainda não conectou, cria conexão
         if (!self::$conn) {
-            //dados para conectar
+
+            // Dados de conexão
             $host = "localhost";
-            $dbname = "mini_frame";
+            $dbname = "mini_framework";
             $user = "root";
             $pass = "";
 
-            //cria conexao pdo
+            // Cria conexão PDO
             self::$conn = new PDO(
                 "mysql:host=$host;dbname=$dbname",
                 $user,
                 $pass
             );
-            //configura erros
+
+            // Configura erros como exceção
             self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-        //RETORNA CONEXÃO
+
+        // Retorna conexão
         return self::$conn;
     }
 }
+
+?>

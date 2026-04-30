@@ -11,12 +11,16 @@ class ProdutoController{
         echo "<a href='/produtos'>Ver Produtos</a>";
     }
 
-    public function listar(){
+    public function listar()
+    {
         $produtos = Produto::listar();
+
         echo "<h2>Produtos</h2>";
-        foreach ($produtos as $p){
-            echo $p['nome'] ." - R$ " .$p['preco'] ."</br>";
+
+        foreach ($produtos as $p) {
+            echo $p['nome'] . " - R$ " . $p['preco'] . "<br>";
         }
+
         echo "<br><a href='/produtos/criar'>Novo Produto</a>";
     }
 

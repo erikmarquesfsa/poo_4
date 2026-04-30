@@ -23,7 +23,7 @@ class Database
 
             // Cria conexão PDO
             self::$conn = new PDO(
-                "mysql:host=$host;dbname=$dbname",
+                "mysql:host=$host;port=3307;dbname=$dbname",
                 $user,
                 $pass
             );

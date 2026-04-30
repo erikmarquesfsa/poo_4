@@ -24,6 +24,27 @@ class ProdutoController{
         echo "<br><a href='/produtos/criar'>Novo Produto</a>";
     }
 
+    public function criar()
+    {
+        echo "
+            <h2>Novo Produto</h2>
+            <form method='POST' action='/produtos/salvar'>
+                Nome: <input type='text' name='nome'><br><br>
+                Preço: <input type='text' name='preco'><br><br>
+                <button type='submit'>Salvar</button>
+            </form>
+        ";
+    }
+
+    public function salvar()
+    {
+        $nome = $_POST['nome'];
+        $preco = $_POST['preco'];
+
+        Produto::salvar($nome,$preco);
+        header("Location:/produtos");
+    }
+
 }
 
 ?>

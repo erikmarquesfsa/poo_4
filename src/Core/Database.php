@@ -17,7 +17,7 @@ class Database
 
             // Dados de conexão
             $host = "localhost";
-            $dbname = "mini_framework";
+            $dbname = "mini_frame";
             $user = "root";
             $pass = "";
 

@@ -17,7 +17,21 @@ class Produto
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } 
 
-    //model insere 
+    //model insere produto
+    public static function salvar($nome,$preco)
+    {
+        //pegar conexao
+        $conn = Database::getConnection();
+
+        //estrutura sql
+        $sql = "INSERT INTO produtos (nome,preco) VALUES (:nome,:preco)";
+        $stmt = $conn->prepare($sql);
+        //executar parametros
+        $stmt->execute([
+            ':nome'=>$nome,
+            ':preco'=>$preco
+        ]);
+    }
 }
 
 
